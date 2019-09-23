@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Satisfy&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
+header {
+  width: 100%;
+  background-color: #58014a;
+  color: rgba(255, 253, 253, 0.65); }
+  header h1 {
+    padding: 20px;
+    font-size: 2rem;
+    font-family: 'Satisfy', cursive; }
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fdb4fa;
+  font-family: 'Roboto', sans-serif;
+  line-height: 19px; }
+  main .to-do, main .in-progress, main .done {
+    margin: 30px;
+    border-radius: 16px;
+    background-color: #f2f2f2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start; }
+    main .to-do h2, main .in-progress h2, main .done h2 {
+      padding: 26px 0px 60px 20px;
+      font-weight: 500;
+      font-size: 2rem; }
+    main .to-do p, main .in-progress p, main .done p {
+      flex: 0;
+      margin: 10px 20px;
+      padding: 20px;
+      border-radius: 16px;
+      background-color: #fff; }
+    main .to-do .done, main .in-progress .done, main .done .done {
+      text-decoration: line-through; }
