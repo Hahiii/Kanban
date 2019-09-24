@@ -15,7 +15,6 @@ function showTickets(arr, column) {
         if (event.target.nodeName === "P") {
           dragged = element
           ticket.style.opacity = .5;
-          console.log("halllo",dragged)
           event.dataTransfer.setData("text", JSON.stringify(dragged));
         }
 
@@ -24,7 +23,6 @@ function showTickets(arr, column) {
           column.parentNode.previousElementSibling.style.backgroundColor = "#a5fdae"
 
         } else {
-          console.log(column)
           column.parentNode.nextElementSibling.style.backgroundColor = "#a5fdae";
         }
 

@@ -7,8 +7,8 @@ function rerender() {
         while (element.firstChild) {
             element.removeChild(element.firstChild);
         }
-
     });
+    
     const todo = getData("to-do");
     const inProgress = getData("in-progress");
     const done = getData("done");

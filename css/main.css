@@ -4,7 +4,8 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #fdb4fa; }
+  background-color: #fdb4fa;
+  position: relative; }
 
 .wrapper {
   width: 100vw;
@@ -45,7 +46,7 @@ main {
       font-size: 2rem; }
     main .todo #taskAdder, main .inprogress #taskAdder, main .donee #taskAdder {
       position: absolute;
-      background-color: rgba(11, 11, 11, 0.637);
+      background-color: rgba(11, 11, 11, 0.886);
       width: 100%;
       height: 100%;
       left: 0;
@@ -56,20 +57,53 @@ main {
       justify-content: center;
       align-items: center; }
       main .todo #taskAdder form, main .inprogress #taskAdder form, main .donee #taskAdder form {
-        text-align: end; }
-      main .todo #taskAdder button, main .inprogress #taskAdder button, main .donee #taskAdder button {
-        padding: 8px 16px;
-        margin: 10px 0px; }
-      main .todo #taskAdder textarea, main .inprogress #taskAdder textarea, main .donee #taskAdder textarea {
-        display: block;
-        padding: 20px;
-        font-size: 1.3rem;
-        line-height: 28px; }
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        main .todo #taskAdder form label, main .inprogress #taskAdder form label, main .donee #taskAdder form label {
+          font-size: 2rem;
+          padding: 20px 0px;
+          color: #960e91;
+          font-family: 'Satisfy', cursive; }
+        main .todo #taskAdder form button, main .inprogress #taskAdder form button, main .donee #taskAdder form button {
+          align-self: flex-end;
+          padding: 8px 16px;
+          margin: 10px 0px;
+          color: #960e91;
+          font-size: 1rem;
+          border-radius: 6px;
+          font-family: 'Satisfy', cursive; }
+        main .todo #taskAdder form textarea, main .inprogress #taskAdder form textarea, main .donee #taskAdder form textarea {
+          display: block;
+          padding: 20px;
+          font-size: 1.3rem;
+          line-height: 28px;
+          border-radius: 6px; }
     main .todo p, main .inprogress p, main .donee p {
-      flex: 0;
-      margin: 15px 20px;
+      margin: 20px 40px;
       padding: 20px;
       border-radius: 16px;
       background-color: #fff; }
     main .todo .done, main .inprogress .done, main .donee .done {
       text-decoration: line-through; }
+
+.intro {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 40px;
+  font-size: 2rem;
+  background-color: rgba(32, 1, 31, 0.831);
+  top: 0; }
+  .intro p {
+    padding: 20px;
+    color: rgba(214, 134, 238, 0.658); }
+  .intro strong {
+    text-decoration: underline; }
+  .intro div {
+    display: none;
+    font-size: 2.5rem;
+    align-self: center; }

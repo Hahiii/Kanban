@@ -4,7 +4,7 @@ import rerender from './rerender.js';
 let tickets;
 
 if (localStorage.getItem("tickets")) {
-   tickets = JSON.parse(localStorage.getItem("tickets"))
+  tickets = JSON.parse(localStorage.getItem("tickets"))
 } else {
   tickets = []
 }
@@ -26,11 +26,20 @@ function submitTicket(event) {
     tickets.push(new Ticket(`${ticket.value}`, false, "to-do"))
     localStorage.setItem("tickets", JSON.stringify(tickets))
   }
-
+  
   ticket.value = "";
   taskAdder.style.display = "none";
   rerender();
 }
 
+function updateTickets(data) {
+  tickets = data;
+  localStorage.setItem("tickets", JSON.stringify(tickets))
+  rerender();
+  
+}
 
-export default tickets
+export {
+  updateTickets,
+  tickets
+}
