@@ -1,41 +1,36 @@
-const tickets = [
+import Ticket from './constructor.js';
+import rerender from './rerender.js';
 
-  {
-    text: "I as a user would like to be able to load more blog post.",
-    isDone: false,
-    id: Math.floor(Math.random() * 100),
-    state: "to-do"
-  },
-  {
-    text: "I as a user would like to be able to change the theme of the site so i have better readability.",
-    isDone: false,
-    id: Math.floor(Math.random() * 100),
-    state: "done"
-  },
-  {
-    text: "I as an admin of the site would like to be able to get a CSV report, so I can keep track of all the visitors and extract insights.",
-    isDone: false,
-    id: Math.floor(Math.random() * 100),
-    state: "in-progress"
-  },
-  {
-    text: "I as a user would like to be able to load more blog post.",
-    isDone: false,
-    id: Math.floor(Math.random() * 100),
-    state: "to-do"
-  },
-  {
-    text: "I as a user would like to be able to change the theme of the site so i have better readability.",
-    isDone: false,
-    id: Math.floor(Math.random() * 100),
-    state: "done"
-  },
-  {
-    text: "I as an admin of the site would like to be able to get a CSV report, so I can keep track of all the visitors and extract insights.",
-    isDone: false,
-    id: Math.floor(Math.random() * 100),
-    state: "in-progress"
+let tickets;
+
+if (localStorage.getItem("tickets")) {
+   tickets = JSON.parse(localStorage.getItem("tickets"))
+} else {
+  tickets = []
+}
+
+const addTicket = document.querySelector("#addTask");
+addTicket.addEventListener("click", openTaskAdder, false);
+const submitTask = document.querySelector("button");
+submitTask.addEventListener("click", submitTicket, false);
+let taskAdder = document.querySelector("#taskAdder");
+
+function openTaskAdder() {
+  taskAdder.style.display = "flex";
+}
+
+function submitTicket(event) {
+  event.preventDefault();
+  let ticket = document.querySelector("textarea");
+  if (ticket.value !== "") {
+    tickets.push(new Ticket(`${ticket.value}`, false, "to-do"))
+    localStorage.setItem("tickets", JSON.stringify(tickets))
   }
-]
+
+  ticket.value = "";
+  taskAdder.style.display = "none";
+  rerender();
+}
+
 
 export default tickets
