@@ -30,7 +30,7 @@ main {
   background-color: #fdb4fa;
   font-family: 'Roboto', sans-serif;
   line-height: 19px; }
-  main .todo, main .inprogress, main .donee {
+  main .container {
     margin: 30px;
     border-radius: 16px;
     background-color: #f2f2f2;
@@ -38,53 +38,67 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start; }
-    main .todo .to-do, main .todo .in-progress, main .todo .done, main .inprogress .to-do, main .inprogress .in-progress, main .inprogress .done, main .donee .to-do, main .donee .in-progress, main .donee .done {
+    main .container .title-todo, main .container .title-done, main .container .title-inprogress {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+    main .container .to-do, main .container .done, main .container .in-progress {
       flex: 1; }
-    main .todo h2, main .inprogress h2, main .donee h2 {
-      padding: 26px 0px 60px 20px;
+    main .container span, main .container h2 {
+      padding: 30px 20px 30px 20px;
       font-weight: 500;
-      font-size: 2rem; }
-    main .todo #taskAdder, main .inprogress #taskAdder, main .donee #taskAdder {
-      position: absolute;
-      background-color: rgba(11, 11, 11, 0.886);
+      font-size: 2rem;
+      background-color: rgba(194, 137, 192, 0.646); }
+    main .container h2 {
+      flex: 1; }
+    main .container #taskAdder {
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.7);
       width: 100%;
-      height: 100%;
+      margin: auto;
       left: 0;
+      bottom: 0;
       top: 0;
       z-index: 1;
       display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center; }
-      main .todo #taskAdder form, main .inprogress #taskAdder form, main .donee #taskAdder form {
+      main .container #taskAdder form {
         display: flex;
         flex-direction: column;
         justify-content: center; }
-        main .todo #taskAdder form label, main .inprogress #taskAdder form label, main .donee #taskAdder form label {
+        main .container #taskAdder form label {
           font-size: 2rem;
           padding: 20px 0px;
           color: #960e91;
           font-family: 'Satisfy', cursive; }
-        main .todo #taskAdder form button, main .inprogress #taskAdder form button, main .donee #taskAdder form button {
+        main .container #taskAdder form .buttons {
+          display: flex;
+          justify-content: space-between; }
+        main .container #taskAdder form button {
           align-self: flex-end;
           padding: 8px 16px;
           margin: 10px 0px;
-          color: #960e91;
-          font-size: 1rem;
+          color: white;
+          font-size: 1.3rem;
+          border: 1px solid #999;
           border-radius: 6px;
+          background-color: #960e91;
           font-family: 'Satisfy', cursive; }
-        main .todo #taskAdder form textarea, main .inprogress #taskAdder form textarea, main .donee #taskAdder form textarea {
+        main .container #taskAdder form textarea {
           display: block;
           padding: 20px;
           font-size: 1.3rem;
           line-height: 28px;
-          border-radius: 6px; }
-    main .todo p, main .inprogress p, main .donee p {
+          border-radius: 6px;
+          border: 1px solid #999; }
+    main .container p {
       margin: 20px 40px;
       padding: 20px;
       border-radius: 16px;
       background-color: #fff; }
-    main .todo .done, main .inprogress .done, main .donee .done {
+    main .container .done {
       text-decoration: line-through; }
 
 .intro {

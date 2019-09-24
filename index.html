@@ -16,23 +16,33 @@
       <h1>Todo Board</h1>
     </header>
     <main>
-      <div class="todo">
-        <h2 id="addTask">To Do</h2>
+      <div class="container">
+        <div class="title-todo"><h2>To Do</h2>
+          <span id="addTask">+</span>
+        </div>
         <div class="to-do"></div>
         <div id="taskAdder">
           <form>
-          <label>New Ticket</label>
-          <textarea type="text" cols="30" rows="5"></textarea>
-          <button type="submit">Submit</button>
+            <label>New Ticket</label>
+            <textarea type="text" cols="30" rows="5"></textarea>
+            <div class="buttons">
+              <button id="cancle">Cancle</button>
+              <button id="submit">Submit</button>
+            </div>
           </form>
         </div>
       </div>
-      <div class="inprogress">
-        <h2>In Progress</h2>
+      <div class="container">
+        <div class="title-inprogress">
+          <h2>In Progress</h2>
+        </div>
         <div class="in-progress"></div>
       </div>
-      <div class="donee">
-        <h2 id="removeTask">Done</h2>
+      <div class="container">
+        <div class="title-done">
+          <h2>Done</h2>
+          <span id="removeTask">-</span>
+        </div>
         <div class="done"></div>
       </div>
     </main>

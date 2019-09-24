@@ -11,7 +11,7 @@ if (localStorage.getItem("tickets")) {
 
 const addTicket = document.querySelector("#addTask");
 addTicket.addEventListener("click", openTaskAdder, false);
-const submitTask = document.querySelector("button");
+const submitTask = document.querySelector("#submit");
 submitTask.addEventListener("click", submitTicket, false);
 let taskAdder = document.querySelector("#taskAdder");
 
