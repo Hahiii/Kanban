@@ -9,6 +9,7 @@ body {
 
 .wrapper {
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -24,12 +25,13 @@ header {
     font-family: 'Satisfy', cursive; }
 
 main {
-  height: 100%;
   display: flex;
   justify-content: space-around;
   background-color: #fdb4fa;
   font-family: 'Roboto', sans-serif;
-  line-height: 19px; }
+  line-height: 19px;
+  height: 100vh;
+  overflow: hidden; }
   main .container {
     margin: 30px;
     border-radius: 16px;
@@ -38,19 +40,24 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start; }
-    main .container .title-todo, main .container .title-done, main .container .title-inprogress {
+    main .container .title-todo, main .container .title-inprogress, main .container .title-done {
       display: flex;
       justify-content: space-between;
-      align-items: center; }
-    main .container .to-do, main .container .done, main .container .in-progress {
+      align-items: center;
+      background-color: rgba(194, 137, 192, 0.646);
+      border-radius: 16px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px; }
+    main .container .to-do, main .container .in-progress, main .container .done {
+      overflow-y: scroll;
       flex: 1; }
-    main .container span, main .container h2 {
+    main .container h2 {
       padding: 30px 20px 30px 20px;
       font-weight: 500;
-      font-size: 2rem;
-      background-color: rgba(194, 137, 192, 0.646); }
-    main .container h2 {
-      flex: 1; }
+      font-size: 2rem; }
+    main .container i {
+      padding: 10px 20px 10px 20px;
+      font-size: 2rem; }
     main .container #taskAdder {
       position: fixed;
       background-color: rgba(255, 255, 255, 0.7);
@@ -100,24 +107,3 @@ main {
       background-color: #fff; }
     main .container .done {
       text-decoration: line-through; }
-
-.intro {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0px 40px;
-  font-size: 2rem;
-  background-color: rgba(32, 1, 31, 0.831);
-  top: 0; }
-  .intro p {
-    padding: 20px;
-    color: rgba(214, 134, 238, 0.658); }
-  .intro strong {
-    text-decoration: underline; }
-  .intro div {
-    display: none;
-    font-size: 2.5rem;
-    align-self: center; }

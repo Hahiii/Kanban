@@ -1,8 +1,8 @@
 import { updateTickets, tickets } from './tickets.js';
 
 function removeDoneTickets() {
-    let tempArr = JSON.parse(localStorage.getItem("tickets")).filter(element => element.isDone === false);
-    updateTickets(tempArr);
+    let tempArrTickets = JSON.parse(localStorage.getItem("tickets")).filter(element => element.isDone === false);
+    updateTickets(tempArrTickets);
 }
 
 export default removeDoneTickets
