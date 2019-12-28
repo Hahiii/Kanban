@@ -6,13 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass --watch sass -o css",
-    "serve": "live-server"
+    "serve": "live-server",
+    "dev":"run-p serve scss",
+    "deploy": "gh-pages -d dist",
+    "build": "rm -f -r dist && mkdir dist && cp index.html dist && npm run copyCss && npm run copyJS",
+    "copyCss": "npm run compileScss && rsync -r css dist",
+    "copyJS": "rsync -r script dist",
+    "compileScss": "node-sass sass -o css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "gh-pages": "^2.1.1",
     "live-server": "^1.2.1",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5"
   }
 }
