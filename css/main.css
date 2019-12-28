@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: #fdb4fa;
+  position: relative; }
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  -moz-user-select: none; }
+
+header {
+  width: 100%;
+  background-color: #58014a;
+  color: rgba(255, 253, 253, 0.65); }
+  header h1 {
+    padding: 20px;
+    font-size: 2rem;
+    font-family: 'Satisfy', cursive; }
+
+main {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fdb4fa;
+  font-family: 'Roboto', sans-serif;
+  line-height: 19px;
+  height: 100vh;
+  overflow: hidden; }
+  main .container {
+    margin: 30px;
+    border-radius: 16px;
+    background-color: #f2f2f2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start; }
+    main .container .title-todo, main .container .title-inprogress, main .container .title-done {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(194, 137, 192, 0.646);
+      border-radius: 16px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px; }
+    main .container .to-do, main .container .in-progress, main .container .done {
+      overflow-y: scroll;
+      flex: 1; }
+    main .container h2 {
+      padding: 30px 20px 30px 20px;
+      font-weight: 500;
+      font-size: 2rem; }
+    main .container i {
+      padding: 10px 20px 10px 20px;
+      font-size: 2rem;
+      cursor: pointer; }
+    main .container #taskAdder {
+      position: fixed;
+      background-color: rgba(252, 225, 244, 0.7);
+      width: 100%;
+      margin: auto;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 1;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      main .container #taskAdder form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px 60px;
+        background-color: #fff;
+        border-radius: 16px; }
+        main .container #taskAdder form label {
+          font-size: 2rem;
+          padding: 20px 0px;
+          color: #960e91; }
+        main .container #taskAdder form button {
+          cursor: pointer; }
+        main .container #taskAdder form .buttons {
+          display: flex;
+          justify-content: space-between; }
+        main .container #taskAdder form .primary {
+          align-self: flex-end;
+          padding: 8px 16px;
+          margin: 10px 0px;
+          color: white;
+          font-size: 1.3rem;
+          border: 1px solid #999;
+          border-radius: 6px;
+          background-color: #960e91; }
+        main .container #taskAdder form .secondary {
+          align-self: flex-end;
+          padding: 8px 16px;
+          margin: 10px 0px;
+          color: #960e91;
+          font-size: 1.3rem;
+          border: 1px solid #999;
+          border-radius: 6px;
+          background-color: white; }
+        main .container #taskAdder form textarea {
+          display: block;
+          padding: 20px;
+          font-size: 1.3rem;
+          line-height: 28px;
+          border-radius: 6px;
+          border: 1px solid #999; }
+    main .container p {
+      margin: 20px 40px;
+      padding: 20px;
+      border-radius: 16px;
+      background-color: #fff; }
+    main .container .done {
+      text-decoration: line-through; }
