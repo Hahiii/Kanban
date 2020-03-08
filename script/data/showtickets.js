@@ -14,7 +14,7 @@ function showTickets(arr, column) {
 
         if (event.target.nodeName === "P") {
           dragged = element
-          ticket.style.opacity = .5;
+          ticket.style.opacity = .7;
           event.dataTransfer.setData("text", JSON.stringify(dragged));
         }
 

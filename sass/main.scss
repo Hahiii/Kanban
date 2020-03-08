@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
-$base-color: #f8f8f8;
+$base-color: #ebebeb;
 $header-font-size: 2rem;
 $card-header-font-size: 1.2rem;
 $card-header-padding: 16px;
 $button-primary: darken($base-color, 70%);
 $button-secondary: rgb(255, 255, 255);
 $icon-color: darken($base-color, 70%);
+$task-BG-color: lighten($base-color, 4%);
+$task-margin: 24px 16px;
+$task-padding: 20px;
+$task-font-size: 0.9rem;
 
 body {
   position: relative;
@@ -54,6 +58,7 @@ main {
     flex-direction: column;
     justify-content: start;
     border: solid 1px darken($base-color, 10%);
+    background: lighten($base-color, 25.4%);
 
     .title-todo,
     .title-inprogress,
@@ -75,7 +80,14 @@ main {
       border-bottom-left-radius: 8px;
       overflow-y: scroll;
       flex: 1;
-      background: lighten($base-color, 25.4%);
+
+      p {
+        margin: $task-margin;
+        padding: $task-padding;
+        font-size: $task-font-size;
+        border-radius: 8px;
+        background-color: $task-BG-color;
+      }
     }
 
     h2 {
@@ -122,13 +134,6 @@ main {
           border: 1px solid #999;
         }
       }
-    }
-
-    p {
-      margin: 20px 40px;
-      padding: 20px;
-      border-radius: 16px;
-      background-color: #fff;
     }
 
     .done {
@@ -179,8 +184,8 @@ i {
   padding: 10px 20px 10px 20px;
   font-size: 1rem;
   color: $icon-color;
-  
-  transition: all .3s;
+
+  transition: all 0.3s;
 
   &:hover {
     color: lighten($icon-color, 10%);

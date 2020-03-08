@@ -37,9 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     localStorage.setItem("tickets", JSON.stringify(tickets));
-    
     columns.forEach(element => {
-      element.parentNode.style.backgroundColor = "#f2f2f2"
+      element.parentNode.style.backgroundColor = ""
     });
     
     rerender();
