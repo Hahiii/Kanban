@@ -18,8 +18,8 @@ body {
 
 header {
   width: 100%;
-  color: #dfdfdf;
-  background: #464646; }
+  color: #d2d2d2;
+  background: #393939; }
   header h1 {
     padding: 20px;
     font-size: 2rem; }
@@ -38,7 +38,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    border: solid 1px #dfdfdf; }
+    border: solid 1px #d2d2d2;
+    background: white; }
     main .container .title-todo,
     main .container .title-inprogress,
     main .container .title-done {
@@ -48,16 +49,23 @@ main {
       border-radius: 8px;
       border-bottom-right-radius: 0px;
       border-bottom-left-radius: 0px;
-      color: #464646;
-      background: #f8f8f8; }
+      color: #393939;
+      background: #ebebeb; }
     main .container .to-do,
     main .container .in-progress,
     main .container .done {
       border-bottom-right-radius: 8px;
       border-bottom-left-radius: 8px;
       overflow-y: scroll;
-      flex: 1;
-      background: white; }
+      flex: 1; }
+      main .container .to-do p,
+      main .container .in-progress p,
+      main .container .done p {
+        margin: 24px 16px;
+        padding: 20px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        background-color: whitesmoke; }
     main .container h2 {
       padding: 16px;
       font-weight: 500;
@@ -65,7 +73,7 @@ main {
       width: 100%; }
     main .container .taskAdder {
       position: fixed;
-      background: rgba(70, 70, 70, 0.6);
+      background: rgba(57, 57, 57, 0.6);
       width: 100%;
       margin: auto;
       left: 0;
@@ -86,7 +94,7 @@ main {
         main .container .taskAdder form label {
           font-size: 1.4rem;
           padding: 30px 0px;
-          color: #464646; }
+          color: #393939; }
         main .container .taskAdder form textarea {
           display: block;
           padding: 20px;
@@ -94,11 +102,6 @@ main {
           line-height: 28px;
           border-radius: 6px;
           border: 1px solid #999; }
-    main .container p {
-      margin: 20px 40px;
-      padding: 20px;
-      border-radius: 16px;
-      background-color: #fff; }
     main .container .done {
       text-decoration: line-through; }
 
@@ -116,24 +119,24 @@ button {
   justify-content: space-between; }
 
 .primary {
-  color: #dfdfdf;
-  background: #464646; }
+  color: #d2d2d2;
+  background: #393939; }
   .primary:hover {
-    color: #f8f8f8;
-    background-color: #2c2c2c; }
+    color: #ebebeb;
+    background-color: #1f1f1f; }
 
 .secondary {
-  color: #464646;
+  color: #393939;
   background-color: white; }
   .secondary:hover {
-    color: #131313;
+    color: #060606;
     background-color: #e6e6e6; }
 
 i {
   cursor: pointer;
   padding: 10px 20px 10px 20px;
   font-size: 1rem;
-  color: #464646;
-  transition: all .3s; }
+  color: #393939;
+  transition: all 0.3s; }
   i:hover {
-    color: #5f5f5f; }
+    color: #525252; }
