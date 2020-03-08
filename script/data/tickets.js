@@ -1,7 +1,12 @@
 import Ticket from './Ticket.js';
 import rerender from './rerender.js';
 
+const addTicket = document.querySelector("#addTask");
+const submitTask = document.querySelector("#submit");
+const cancelTask = document.querySelector("#cancle");
+
 let tickets;
+let taskAdder = document.querySelector("#taskAdder");
 let ticket = document.querySelector("textarea");
 
 if (localStorage.getItem("tickets")) {
@@ -10,18 +15,24 @@ if (localStorage.getItem("tickets")) {
   tickets = []
 }
 
-const addTicket = document.querySelector("#addTask");
+ticket.addEventListener("input", () => {
+  if (ticket.value.trim() !== "") {
+    submitTask.disabled = false;
+    submitTask.classList.add("primary");
+  } else {
+    submitTask.disabled = true;
+    submitTask.classList.remove("primary");
+  }
+}, false)
+
 addTicket.addEventListener("click", openTaskAdder, false);
-const submitTask = document.querySelector("#submit");
 submitTask.addEventListener("click", submitTicket, false);
-const cancelTask = document.querySelector("#cancle");
 cancelTask.addEventListener("click", (e) => {
   e.preventDefault();
   ticket.value = "";
   taskAdder.style.display = "none";
 }, false);
 
-let taskAdder = document.querySelector("#taskAdder");
 
 function openTaskAdder() {
   taskAdder.style.display = "flex";
@@ -36,6 +47,8 @@ function submitTicket(event) {
 
   ticket.value = "";
   taskAdder.style.display = "none";
+  submitTask.disabled = true;
+  submitTask.classList.remove("primary");
   rerender();
 }
 

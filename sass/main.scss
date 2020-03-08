@@ -144,7 +144,6 @@ main {
 
 // buttons
 button {
-  cursor: pointer;
   font-size: 1rem;
   padding: 8px 16px;
   border: 1px solid #999;
@@ -163,6 +162,7 @@ button {
   background: $button-primary;
 
   &:hover {
+    cursor: pointer;
     color: darken($base-color, 0%);
     background-color: darken($button-primary, 10%);
   }
@@ -173,6 +173,7 @@ button {
   background-color: $button-secondary;
 
   &:hover {
+    cursor: pointer;
     color: darken($base-color, 90%);
     background-color: darken($button-secondary, 10%);
   }
