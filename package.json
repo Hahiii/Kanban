@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass --watch sass -o css",
-    "serve": "live-server",
-    "dev":"run-p serve scss",
+    "serve": "parcel index.html",
+    "dev": "run-p serve scss",
     "deploy": "gh-pages -d dist",
     "build": "rm -f -r dist && mkdir dist && cp index.html dist && npm run copyCss && npm run copyJS",
     "copyCss": "npm run compileScss && rsync -r css dist",
@@ -17,11 +17,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^7.0.2"
+  },
   "devDependencies": {
     "gh-pages": "^2.1.1",
     "live-server": "^1.2.1",
-    "node-sass": "^4.13.0",
-    "npm-run-all": "^4.1.5"
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4"
   }
 }

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from '../../node_modules/uuid';
 import Ticket from './Ticket.js';
 import rerender from './rerender.js';
 
@@ -41,7 +42,7 @@ function openTaskAdder() {
 function submitTicket(event) {
   event.preventDefault();
   if (ticket.value !== "") {
-    tickets.push(new Ticket(`${ticket.value}`, false, "to-do"))
+    tickets.push(new Ticket(`${ticket.value}`, false, "to-do", uuidv4))
     localStorage.setItem("tickets", JSON.stringify(tickets))
   }
 

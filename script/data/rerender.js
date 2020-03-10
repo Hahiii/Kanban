@@ -4,9 +4,7 @@ import showTickets from './showtickets.js';
 
 function rerender() {
     columns.forEach(element => {
-        while (element.firstChild) {
-            element.removeChild(element.firstChild);
-        }
+        element.innerHTML = ""
     });
     
     const todo = getData("to-do");

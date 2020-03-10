@@ -1,9 +1,9 @@
 class Ticket {
-  constructor(text, isDone, state) {
+  constructor(text, isDone, state, uuidv4) {
     this.text = text;
     this.isDone = isDone;
-    this.id = Math.floor(Math.random() * 100);
-    this.state = state
+    this.id = uuidv4();
+    this.state = state;
   }
 }
 
