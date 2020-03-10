@@ -1,5 +1,6 @@
 class Ticket {
-  constructor(text, isDone, state, uuidv4) {
+  constructor(title, text, isDone, state, uuidv4) {
+    this.title = title;
     this.text = text;
     this.isDone = isDone;
     this.id = uuidv4;

@@ -16,7 +16,7 @@ function showTickets(arr, column) {
 
 
     ticket.draggable = false;
-    ticket.innerText = element.text;
+    ticket.innerText = element.title;
     ticket.className = element.state;
     ticket.id = element.id;
 
@@ -27,10 +27,15 @@ function showTickets(arr, column) {
 
       icon.addEventListener("click", () => {
         let eddit = document.querySelector('#taskAdder');
+        let edditTitle = document.querySelector('#title');
         let edditText = document.querySelector('textarea');
         let edditButton = document.querySelector('#submit');
+        let ticketDetails = arr.filter((element) => element.id === Number(ticket.id));
+        edditButton.disabled = false;
+        edditButton.classList.add("primary");
         edditButton.innerHTML = 'Update Task' + ' ' + ticket.id
-        edditText.value = ticket.innerText;
+        edditTitle.value = ticket.innerText;
+        edditText.value = ticketDetails[0].text;
         eddit.style.display = 'flex'
       }, false)
 
@@ -80,10 +85,18 @@ function showTickets(arr, column) {
 
       ticket.addEventListener("click", function () {
         let modal = document.querySelector('#details');
-        let ticketDetails = ticket;
+        let ticketDetails = arr.filter((element) => element.id === Number(ticket.id));
+        let description = document.createElement("p")
+        if (ticketDetails[0].text !== "") {
+          ticketDetails = ticketDetails[0].text;
+          description.innerText = ticketDetails
+        } else {
+          description.innerText = 'There are no details about this Task'
+        }
+        
 
         modal.removeChild(modal.lastChild);
-        modal.appendChild(ticketDetails);
+        modal.appendChild(description);
         modal.parentNode.style.display = 'flex'
 
         modal.parentNode.addEventListener("click", () => {
@@ -99,15 +112,15 @@ function showTickets(arr, column) {
   });
 }
 
-function isBefore(el1, el2) {
-  let cur
-  if (el1 && el2) {
-    if (el2.parentNode === el1.parentNode) {
-      for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
-        if (cur === el2) return true;
-      }
-    } else return false;
-  }
-}
+// function isBefore(el1, el2) {
+//   let cur
+//   if (el1 && el2) {
+//     if (el2.parentNode === el1.parentNode) {
+//       for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
+//         if (cur === el2) return true;
+//       }
+//     } else return false;
+//   }
+// }
 
 export default showTickets

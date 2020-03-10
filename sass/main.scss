@@ -157,20 +157,32 @@ main {
         padding: 30px 30px 30px;
         background-color: #fff;
         border-radius: 8px;
+        
 
         label {
           font-size: 1.4rem;
-          padding: 30px 0px;
+          padding: 40px 0px 10px;
           color: darken($base-color, 70%);
+          
+        }
+
+        input {
+          font-size: 1.3rem;
+          padding: 10px 20px;
+          border: 1px solid #999;
+          border-radius: 6px;
+          font-weight: 400;
         }
 
         textarea {
           display: block;
-          padding: 20px;
-          font-size: 1.3rem;
+          padding: 10px 20px;
+          font-size: 1rem;
           line-height: 28px;
           border-radius: 6px;
           border: 1px solid #999;
+          font-weight: 200;
+          line-height: 1.2;
         }
       }
     }
