@@ -38,7 +38,7 @@ function showTickets(arr, column) {
       ticket.addEventListener("dragstart", function (event) {
         if (event.target.nodeName === "P") {
           dragged = element
-          selected = event.target;
+          selected = event.target.parentNode;
           ticket.style.opacity = .7;
           event.dataTransfer.effectAllowed = "move"
           event.dataTransfer.setData("text", JSON.stringify(dragged));
@@ -53,25 +53,28 @@ function showTickets(arr, column) {
         }
       }, false);
 
-      ticket.addEventListener("dragover", function (event) {
-        if (isBefore(selected, event.target)) event.target.parentNode.insertBefore(selected, event.target);
-        else event.target.parentNode.insertBefore(selected, event.target.nextSibling);
-      }, false);
+      // ticket.addEventListener("dragover", function (event) {
+      //   if (selected.parentNode.className === event.target.parentNode.parentNode.className) {
+      //     if (isBefore(selected, event.target.parentNode)) event.target.parentNode.parentNode.insertBefore(selected, event.target.parentNode);
+      //     else event.target.parentNode.parentNode.insertBefore(selected, event.target.parentNode.nextSibling);
+      //   }
+      // }, false);
 
       ticket.addEventListener("dragend", function (event) {
         selected.style.opacity = 1;
-        if (selected.parentNode.childNodes) {
-          let columnTickets = selected.parentNode.childNodes;
-          let newArr = [];
-          for (let i = 0; i < columnTickets.length; i++) {
-            for (let j = 0; j < arr.length; j++) {
-              if (arr[j].id === columnTickets[i].id) {
-                newArr.push(arr[j]);
-              };
-            }
-          }
-          localStorage.setItem("tickets", JSON.stringify(newArr))
-        }
+        // let ticketsList = event.target.parentNode.parentNode;
+        // if (ticketsList) {
+        //   let columnTickets = selected.parentNode.childNodes;
+        //   let newArr = [];
+        //   for (let i = 0; i < columnTickets.length; i++) {
+        //     for (let j = 0; j < arr.length; j++) {
+        //       if (arr[j].id === columnTickets[i].id) {
+        //         newArr.push(arr[j]);
+        //       };
+        //     }
+        //   }
+        //   localStorage.setItem("tickets", JSON.stringify(newArr));
+        // }
         selected = null;
       }, false);
 
@@ -98,11 +101,13 @@ function showTickets(arr, column) {
 
 function isBefore(el1, el2) {
   let cur
-  if (el2.parentNode === el1.parentNode) {
-    for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
-      if (cur === el2) return true;
-    }
-  } else return false;
+  if (el1 && el2) {
+    if (el2.parentNode === el1.parentNode) {
+      for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
+        if (cur === el2) return true;
+      }
+    } else return false;
+  }
 }
 
 export default showTickets
