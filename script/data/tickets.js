@@ -9,6 +9,7 @@ const cancelTask = document.querySelector("#cancle");
 let tickets;
 let taskAdder = document.querySelector("#taskAdder");
 let ticket = document.querySelector("textarea");
+let ticketTitle = document.querySelector("#title");
 
 if (localStorage.getItem("tickets")) {
   tickets = JSON.parse(localStorage.getItem("tickets"))
@@ -16,8 +17,8 @@ if (localStorage.getItem("tickets")) {
   tickets = []
 }
 
-ticket.addEventListener("input", () => {
-  if (ticket.value.trim() !== "") {
+ticketTitle.addEventListener("input", () => {
+  if (ticketTitle.value.trim() !== "") {
     submitTask.disabled = false;
     submitTask.classList.add("primary");
   } else {
@@ -30,7 +31,9 @@ addTicket.addEventListener("click", openTaskAdder, false);
 submitTask.addEventListener("click", submitTicket, false);
 cancelTask.addEventListener("click", (e) => {
   e.preventDefault();
+  ticketTitle.value = "";
   ticket.value = "";
+  submitTask.disabled = true;
   taskAdder.style.display = "none";
 }, false);
 
@@ -42,17 +45,16 @@ function openTaskAdder() {
 function submitTicket(event) {
   event.preventDefault();
   if (submitTask.innerText === 'Submit') {
-    if (ticket.value !== "") {
-      tickets.push(new Ticket(`${ticket.value}`, false, "to-do", (tickets.length + 1)))
-      localStorage.setItem("tickets", JSON.stringify(tickets))
-    }
-
+    tickets.push(new Ticket(`${ticketTitle.value}`, `${ticket.value}`, false, "to-do", (tickets.length + 1)))
+    localStorage.setItem("tickets", JSON.stringify(tickets))
   } else {
     let ticketIndex = submitTask.innerText.split("")[submitTask.innerText.split("").length - 1];
+    tickets[Number(ticketIndex) - 1].title = ticketTitle.value;
     tickets[Number(ticketIndex) - 1].text = ticket.value;
     localStorage.setItem("tickets", JSON.stringify(tickets));
   }
   ticket.value = "";
+  ticketTitle.value = "";
   taskAdder.style.display = "none";
   submitTask.disabled = true;
   submitTask.innerText = 'Submit';
