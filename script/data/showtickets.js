@@ -24,11 +24,12 @@ function showTickets(arr, column) {
 
     if (column.className !== "done") {
       ticket.draggable = true;
+
       icon.addEventListener("click", () => {
         let eddit = document.querySelector('#taskAdder');
         let edditText = document.querySelector('textarea');
         let edditButton = document.querySelector('#submit');
-        edditButton.innerHTML = 'Eddit Task' + ' ' + ticket.id
+        edditButton.innerHTML = 'Update Task' + ' ' + ticket.id
         edditText.value = ticket.innerText;
         eddit.style.display = 'flex'
       }, false)
@@ -51,7 +52,6 @@ function showTickets(arr, column) {
           column.parentNode.nextElementSibling.style.backgroundColor = "#a5fdae";
         }
       }, false);
-
 
       ticket.addEventListener("dragover", function (event) {
         if (isBefore(selected, event.target)) event.target.parentNode.insertBefore(selected, event.target);
@@ -78,9 +78,11 @@ function showTickets(arr, column) {
       ticket.addEventListener("click", function () {
         let modal = document.querySelector('#details');
         let ticketDetails = ticket;
-        modal.removeChild(modal.lastChild)
-        modal.appendChild(ticketDetails)
+
+        modal.removeChild(modal.lastChild);
+        modal.appendChild(ticketDetails);
         modal.parentNode.style.display = 'flex'
+
         modal.parentNode.addEventListener("click", () => {
           modal.parentNode.style.display = '';
           rerender();
