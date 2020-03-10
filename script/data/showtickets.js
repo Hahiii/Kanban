@@ -20,21 +20,19 @@ function showTickets(arr, column) {
     ticket.className = element.state;
     ticket.id = element.id;
 
-    icon.addEventListener("click", () => {
-      let eddit = document.querySelector('#taskAdder');
-      let edditText = document.querySelector('textarea');
-      let edditButton = document.querySelector('#submit');
-      edditButton.innerHTML = 'Eddit Task' +' '+ticket.id
-      edditText.value = ticket.innerText;
-      eddit.style.display = 'flex'
-    }, false)
 
-    a.append(icon);
-    list.append(ticket)
-    list.append(a)
 
     if (column.className !== "done") {
       ticket.draggable = true;
+      icon.addEventListener("click", () => {
+        let eddit = document.querySelector('#taskAdder');
+        let edditText = document.querySelector('textarea');
+        let edditButton = document.querySelector('#submit');
+        edditButton.innerHTML = 'Eddit Task' + ' ' + ticket.id
+        edditText.value = ticket.innerText;
+        eddit.style.display = 'flex'
+      }, false)
+
 
       ticket.addEventListener("dragstart", function (event) {
         if (event.target.nodeName === "P") {
@@ -89,6 +87,9 @@ function showTickets(arr, column) {
         }, false)
       }, false);
     }
+    a.append(icon);
+    list.append(ticket)
+    list.append(a)
     column.appendChild(list);
   });
 }
