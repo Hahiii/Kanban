@@ -106,7 +106,6 @@ main {
       text-decoration: line-through; }
 
 button {
-  cursor: pointer;
   font-size: 1rem;
   padding: 8px 16px;
   border: 1px solid #999;
@@ -122,6 +121,7 @@ button {
   color: #d2d2d2;
   background: #393939; }
   .primary:hover {
+    cursor: pointer;
     color: #ebebeb;
     background-color: #1f1f1f; }
 
@@ -129,6 +129,7 @@ button {
   color: #393939;
   background-color: white; }
   .secondary:hover {
+    cursor: pointer;
     color: #060606;
     background-color: #e6e6e6; }
 
