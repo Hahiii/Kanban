@@ -21,10 +21,10 @@
           <h2>To Do</h2>
           <a title="add new item"><i id="addTask" class="fas fa-plus"></i></a>
         </div>
-        <div class="to-do"></div>
+        <ul class="to-do"></ul>
         <div id="taskAdder" class="taskAdder">
           <form>
-            <label>New Ticket</label>
+            <label>Ticket</label>
             <textarea type="text" cols="30" rows="5"></textarea>
             <div class="buttons">
               <button id="cancle" class="secondary">Cancel</button>
@@ -32,14 +32,17 @@
             </div>
           </form>
         </div>
-        <div id="details" class="taskAdder">
+        
+        <div class="details-container">
+          <div id="details" class="details">
+          </div>
         </div>
       </div>
       <div class="container">
         <div class="title-inprogress">
           <h2>In Progress</h2>
         </div>
-        <div class="in-progress"></div>
+        <ul class="in-progress"></ul>
       </div>
       <div class="container">
         <div class="title-done">
@@ -48,7 +51,7 @@
             <i id="removeTask" class="fas fa-trash"></i>
           </a>
         </div>
-        <div class="done"></div>
+        <ul class="done"></ul>
       </div>
     </main>
   </div>

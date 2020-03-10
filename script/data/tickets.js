@@ -41,14 +41,21 @@ function openTaskAdder() {
 
 function submitTicket(event) {
   event.preventDefault();
-  if (ticket.value !== "") {
-    tickets.push(new Ticket(`${ticket.value}`, false, "to-do", (tickets.length + 1)))
-    localStorage.setItem("tickets", JSON.stringify(tickets))
-  }
+  if (submitTask.innerText === 'Submit') {
+    if (ticket.value !== "") {
+      tickets.push(new Ticket(`${ticket.value}`, false, "to-do", (tickets.length + 1)))
+      localStorage.setItem("tickets", JSON.stringify(tickets))
+    }
 
+  } else {
+    let ticketIndex = submitTask.innerText.split("")[submitTask.innerText.split("").length - 1];
+    tickets[Number(ticketIndex) - 1].text = ticket.value;
+    localStorage.setItem("tickets", JSON.stringify(tickets));
+  }
   ticket.value = "";
   taskAdder.style.display = "none";
   submitTask.disabled = true;
+  submitTask.innerText = 'Submit';
   submitTask.classList.remove("primary");
   rerender();
 }

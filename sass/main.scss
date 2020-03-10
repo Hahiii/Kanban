@@ -81,6 +81,15 @@ main {
       overflow-y: scroll;
       flex: 1;
 
+      li {
+        position: relative;
+        a {
+          right: 0;
+          top: 0;
+          position: absolute;
+        }
+      }
+
       p {
         margin: $task-margin;
         padding: $task-padding;
@@ -97,7 +106,7 @@ main {
       width: 100%;
     }
 
-    .taskAdder {
+    .details-container {
       position: fixed;
       background: rgba(darken($base-color, 70%), 0.6);
       width: 100%;
@@ -111,8 +120,8 @@ main {
       justify-content: center;
       align-items: center;
 
-      p {
-        font-size: 1.4rem;
+      .details {
+        position: relative;
         width: 100%;
         max-width: 50%;
         height: 100%;
@@ -120,7 +129,26 @@ main {
         padding: 30px 30px 30px;
         background-color: #fff;
         border-radius: 8px;
+
+        p {
+          font-size: 1.4rem;
+        }
       }
+    }
+
+    .taskAdder {
+      position: fixed;
+      background: rgba(darken($base-color, 70%), 0.6);
+      width: 100%;
+      margin: auto;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 1;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       form {
         display: flex;
