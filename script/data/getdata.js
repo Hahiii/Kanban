@@ -1,4 +1,4 @@
-import { tickets } from './tickets';
+import { tickets } from './tickets.js';
 
 function getData(column) {
   return localStorage.getItem("tickets") ?
