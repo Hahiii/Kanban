@@ -54,6 +54,18 @@ function showTickets(arr, column) {
         }
         selected = null;
       }, false);
+
+      ticket.addEventListener("click", function () {
+        let modal = document.querySelector('#details');
+        let ticketDetails = ticket;
+        modal.innerHTML = "";
+        modal.appendChild(ticketDetails)
+        modal.style.display = 'flex'
+        modal.addEventListener("click", () => {
+          modal.style.display = '';
+          rerender();
+        }, false)
+      }, false);
     }
     column.appendChild(ticket);
   });
