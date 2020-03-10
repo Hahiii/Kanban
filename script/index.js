@@ -1,21 +1,19 @@
 import columns from './data/columns.js';
 import rerender from './data/rerender.js';
 import removeDoneTickets from './data/emptydone.js';
-import { updateTickets, tickets } from './data/tickets.js';
+import { tickets } from './data/tickets.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const removeTickets = document.querySelector("#removeTask");
   removeTickets.addEventListener("click", removeDoneTickets, false);
-
   columns.forEach(element => {
     element.addEventListener("dragover", allowDrop, false)
     element.addEventListener("drop", drop, false)
-
   });
 
   function allowDrop(event) {
-    if (event.target.nodeName == "DIV") {
+    if (event.target.nodeName == "UL") {
       event.preventDefault();
     }
   }
