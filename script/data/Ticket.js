@@ -1,3 +1,5 @@
+// import { v4 as uuidv4 } from '../../node_modules/uuid';
+
 class Ticket {
   constructor(title, text, isDone, state, uuidv4) {
     this.title = title;
@@ -10,4 +12,4 @@ class Ticket {
 
 
 
-export default Ticket
+export default Ticket;
