@@ -14,11 +14,21 @@ class TicketsList {
   }
 
   updateList(list) {
-     localStorage.setItem("tickets", JSON.stringify(list));
+    localStorage.setItem("tickets", JSON.stringify(list));
   }
 
   getList(stateIn) {
     return stateIn ? this.tickets.filter(element => element.state === stateIn) : this.tickets;
+  }
+
+  getTemplate(title, state, id) {
+    let li = document.createElement("li");
+    let innerHtmlTemplate = `
+    <a title="add new item"><i id="edditTask" class="far fa-edit"></i></a>
+    <p draggable="true" class=${state} id=${id}>${title}</p>    
+    `
+    li.innerHTML = `${innerHtmlTemplate}`;
+    return li;
   }
 }
 

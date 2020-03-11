@@ -1,34 +1,22 @@
 import { rerender, TicketList } from './rerender.js';
 import TicketsList from './TicketsList.js';
 
+
 if (!TicketList) {
   let TicketList = new TicketsList;
 }
 
 function showTickets(object, column) {
-
   let dragged;
   let selected
   let i = 0;
   for (const key in object) {
 
     object[key].forEach(element => {
-      let list = document.createElement("li");
-      let ticket = document.createElement("p");
-      let a = document.createElement("a");
-      let icon = document.createElement("i");
-
-      a.title = "add new item"
-      icon.id = "edditTask";
-      icon.className = "far fa-edit";
-
-
+      let li = TicketList.getTemplate(element.title, element.state, element.id);
+      let icon = li.children[0].childNodes[0];
+      let ticket = li.children[1];
       ticket.draggable = false;
-      ticket.innerText = element.title;
-      ticket.className = element.state;
-      ticket.id = element.id;
-
-
 
       if (column[i].className !== "done") {
         ticket.draggable = true;
@@ -118,10 +106,7 @@ function showTickets(object, column) {
           }, false)
         }, false);
       }
-      a.append(icon);
-      list.append(ticket)
-      list.append(a)
-      column[i].appendChild(list);
+      column[i].appendChild(li);
     });
     i++;
   }
