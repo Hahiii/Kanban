@@ -11,7 +11,6 @@ function showTickets(object, column) {
   let selected
   let i = 0;
   for (const key in object) {
-
     object[key].forEach(element => {
       let li = TicketList.getTemplate(element.title, element.state, element.id);
       let icon = li.children[0].childNodes[0];
@@ -29,7 +28,8 @@ function showTickets(object, column) {
 
           edditButton.disabled = false;
           edditButton.classList.add("primary");
-          edditButton.innerHTML = 'Update Task' + ' ' + ticket.id;
+          edditButton.innerHTML = 'Update Task';
+          edditButton.setDataId = ticket.id;
           edditTitle.value = ticket.innerText;
 
           let tickets = TicketList.getList();
@@ -38,8 +38,29 @@ function showTickets(object, column) {
           eddit.style.display = 'flex'
         }, false)
 
+        ticket.addEventListener("click", () => {
+          let modal = document.querySelector('#details');
+          let ticketDetails = TicketList.getList();
+          ticketDetails = ticketDetails.filter(element => element.id === ticket.id);
+          let description = document.createElement("p")
+          if (ticketDetails[0].text !== "") {
+            description.innerText = ticketDetails[0].text
+          } else {
+            description.innerText = 'There are no details about this Task'
+          }
 
-        ticket.addEventListener("dragstart", function (event) {
+
+          modal.removeChild(modal.lastChild);
+          modal.appendChild(description);
+          modal.parentNode.style.display = 'flex'
+
+          modal.parentNode.addEventListener("click", () => {
+            modal.parentNode.style.display = '';
+            rerender();
+          }, false)
+        }, false);
+
+        ticket.addEventListener("dragstart", (event) => {
           if (event.target.nodeName === "P") {
             dragged = element
             selected = event.target.parentNode;
@@ -65,7 +86,7 @@ function showTickets(object, column) {
         //   }
         // }, false);
 
-        ticket.addEventListener("dragend", function (event) {
+        ticket.addEventListener("dragend", (event) => {
           selected.style.opacity = 1;
           // let ticketsList = event.target.parentNode.parentNode;
           // if (ticketsList) {
@@ -82,28 +103,6 @@ function showTickets(object, column) {
           // }
           selected = null;
 
-        }, false);
-
-        ticket.addEventListener("click", function () {
-          let modal = document.querySelector('#details');
-          let ticketDetails = TicketList.getList();
-          ticketDetails = ticketDetails.filter(element => element.id === ticket.id);
-          let description = document.createElement("p")
-          if (ticketDetails[0].text !== "") {
-            description.innerText = ticketDetails[0].text
-          } else {
-            description.innerText = 'There are no details about this Task'
-          }
-
-
-          modal.removeChild(modal.lastChild);
-          modal.appendChild(description);
-          modal.parentNode.style.display = 'flex'
-
-          modal.parentNode.addEventListener("click", () => {
-            modal.parentNode.style.display = '';
-            rerender();
-          }, false)
         }, false);
       }
       column[i].appendChild(li);

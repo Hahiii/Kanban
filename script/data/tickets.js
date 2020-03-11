@@ -48,10 +48,9 @@ function submitTicket(event) {
     tickets = TicketList.add(new Ticket(`${ticketTitle.value}`, `${ticket.value}`, false, "to-do", uuidv4));
     TicketList.updateList(tickets);
   } else {
-    let ticketIndex = submitTask.innerText.split(" ")[submitTask.innerText.split(" ").length - 1];
     tickets = TicketList.getList()
     tickets.forEach(element => {
-      if (element.id === ticketIndex) {
+      if (element.id === submitTask.setDataId) {
         element.title = ticketTitle.value;
         element.text = ticket.value;
       }
