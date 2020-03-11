@@ -3,9 +3,11 @@ class Ticket {
     this.title = title;
     this.text = text;
     this.isDone = isDone;
-    this.id = uuidv4;
+    this.id = uuidv4();
     this.state = state;
   }
 }
+
+
 
 export default Ticket
