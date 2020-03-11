@@ -1,21 +1,21 @@
-// import { v4 as uuidv4 } from '../../node_modules/uuid';
+import { v4 as uuidv4 } from '../../node_modules/uuid';
 import Ticket from './Ticket.js';
-import rerender from './rerender.js';
+import TicketsList from './TicketsList.js';
+import { rerender, TicketList } from './rerender.js';
+
+
+if (!TicketList) {
+  let TicketList = new TicketsList;
+}
 
 const addTicket = document.querySelector("#addTask");
 const submitTask = document.querySelector("#submit");
 const cancelTask = document.querySelector("#cancle");
 
-let tickets;
+let tickets = []
 let taskAdder = document.querySelector("#taskAdder");
 let ticket = document.querySelector("textarea");
 let ticketTitle = document.querySelector("#title");
-
-if (localStorage.getItem("tickets")) {
-  tickets = JSON.parse(localStorage.getItem("tickets"))
-} else {
-  tickets = []
-}
 
 ticketTitle.addEventListener("input", () => {
   if (ticketTitle.value.trim() !== "") {
@@ -45,14 +45,20 @@ function openTaskAdder() {
 function submitTicket(event) {
   event.preventDefault();
   if (submitTask.innerText === 'Submit') {
-    tickets.push(new Ticket(`${ticketTitle.value}`, `${ticket.value}`, false, "to-do", (tickets.length + 1)))
-    localStorage.setItem("tickets", JSON.stringify(tickets))
+    tickets = TicketList.add(new Ticket(`${ticketTitle.value}`, `${ticket.value}`, false, "to-do", uuidv4));
+    TicketList.updateList(tickets);
   } else {
-    let ticketIndex = submitTask.innerText.split("")[submitTask.innerText.split("").length - 1];
-    tickets[Number(ticketIndex) - 1].title = ticketTitle.value;
-    tickets[Number(ticketIndex) - 1].text = ticket.value;
-    localStorage.setItem("tickets", JSON.stringify(tickets));
+    let ticketIndex = submitTask.innerText.split(" ")[submitTask.innerText.split(" ").length - 1];
+    tickets = TicketList.getList()
+    tickets.forEach(element => {
+      if (element.id === ticketIndex) {
+        element.title = ticketTitle.value;
+        element.text = ticket.value;
+      }
+    });
+    TicketList.updateList(tickets);
   }
+
   ticket.value = "";
   ticketTitle.value = "";
   taskAdder.style.display = "none";
@@ -62,14 +68,4 @@ function submitTicket(event) {
   rerender();
 }
 
-function updateTickets(data) {
-  tickets = data;
-  localStorage.setItem("tickets", JSON.stringify(tickets))
-  rerender();
-
-}
-
-export {
-  updateTickets,
-  tickets
-}
+export { tickets }
