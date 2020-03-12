@@ -4,7 +4,7 @@ import TicketsList from './data/TicketsList.js';
 import { tickets } from './data/tickets';
 
 if (!TicketList) {
-  let TicketList = new TicketsList;
+  let TicketList = new TicketsList();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -3,7 +3,7 @@ import TicketsList from './TicketsList.js';
 
 
 if (!TicketList) {
-  let TicketList = new TicketsList;
+  let TicketList = new TicketsList();
 }
 
 function showTickets(object, column) {
@@ -12,7 +12,8 @@ function showTickets(object, column) {
   let i = 0;
   for (const key in object) {
     object[key].forEach(element => {
-      let li = TicketList.getTemplate(element.title, element.state, element.id);
+      console.log(element, '--------------->')
+      let li = element.getTemplate(element.title, element.state, element.id);
       let icon = li.children[0].childNodes[0];
       let ticket = li.children[1];
       ticket.draggable = false;
