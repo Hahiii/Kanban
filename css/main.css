@@ -81,30 +81,6 @@ main {
       font-weight: 500;
       font-size: 1.2rem;
       width: 100%; }
-    main .container .details-container {
-      position: fixed;
-      background: rgba(57, 57, 57, 0.6);
-      width: 100%;
-      margin: auto;
-      left: 0;
-      bottom: 0;
-      top: 0;
-      z-index: 1;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; }
-      main .container .details-container .details {
-        position: relative;
-        width: 100%;
-        max-width: 50%;
-        height: 100%;
-        max-height: 50%;
-        padding: 30px 30px 30px;
-        background-color: #fff;
-        border-radius: 8px; }
-        main .container .details-container .details p {
-          font-size: 1.4rem; }
     main .container .taskAdder {
       position: fixed;
       background: rgba(57, 57, 57, 0.6);
@@ -183,3 +159,28 @@ i {
   transition: all 0.3s; }
   i:hover {
     color: #525252; }
+
+.modal-container {
+  position: fixed;
+  background: rgba(57, 57, 57, 0.6);
+  width: 100%;
+  margin: auto;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .modal-container .modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 50%;
+    height: 100%;
+    max-height: 50%;
+    padding: 30px 30px 30px;
+    background-color: #fff;
+    border-radius: 8px; }
+    .modal-container .modal-content p {
+      font-size: 1.4rem; }
