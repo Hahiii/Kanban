@@ -28,6 +28,18 @@ class TicketsList {
     localStorage.setItem("tickets", JSON.stringify(list));
   }
 
+  getTicketById(id) {
+    const matchingTickets = this.tickets.filter(element => element.id === id);
+    let ticket = null;
+
+    if (matchingTickets.length) {
+      ticket = matchingTickets[0];
+    }
+
+    return ticket;
+  }
+
+
   getList(stateIn) {
     return stateIn ?
       this.tickets.filter(element => element.state === stateIn) :

@@ -1,20 +1,25 @@
-import columns from './columns.js';
+import columnElements from './columns.js';
 import showTickets from './showtickets.js';
 import TicketsList from './TicketsList.js';
 
-let TicketList = new TicketsList;
+let TicketList = new TicketsList();
 
 
 function rerender() {
-    columns.forEach(element => {
-        element.innerHTML = null;
+    columnElements.forEach(element => {
+        element.innerHTML = '';
     });
 
-    const todo = TicketList.getList("to-do");
-    const inProgress = TicketList.getList("in-progress");
-    const done = TicketList.getList("done");
+    const todoItems = TicketList.getList("to-do");
+    const inProgressItems = TicketList.getList("in-progress");
+    const doneItems = TicketList.getList("done");
 
-    showTickets({ todo, inProgress, done }, columns);
+    showTickets({
+        todoItems,
+        inProgressItems,
+        doneItems
+    },
+    columnElements);
 
 }
 
