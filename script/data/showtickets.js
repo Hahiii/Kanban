@@ -127,7 +127,7 @@ function showTickets(object, column) {
 //     if (el2.parentNode === el1.parentNode) {
 //       for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
 //         console.log(cur, "cur", el2, "el2");
-        
+
 //         if (cur === el2) return true;
 //       }
 //     } else return false;
