@@ -51,77 +51,79 @@ main {
       border-bottom-left-radius: 0px;
       color: #393939;
       background: #ebebeb; }
-    main .container .to-do,
-    main .container .in-progress,
-    main .container .done {
-      border-bottom-right-radius: 8px;
-      border-bottom-left-radius: 8px;
-      overflow-y: scroll;
-      flex: 1; }
-      main .container .to-do li,
-      main .container .in-progress li,
-      main .container .done li {
-        position: relative; }
-        main .container .to-do li a,
-        main .container .in-progress li a,
-        main .container .done li a {
-          right: 0;
-          top: 0;
-          position: absolute; }
-      main .container .to-do p,
-      main .container .in-progress p,
-      main .container .done p {
-        margin: 24px 16px;
-        padding: 20px;
-        font-size: 0.9rem;
-        border-radius: 8px;
-        background-color: whitesmoke; }
     main .container h2 {
       padding: 16px;
       font-weight: 500;
       font-size: 1.2rem;
       width: 100%; }
-    main .container .taskAdder {
-      position: fixed;
-      background: rgba(57, 57, 57, 0.6);
-      width: 100%;
-      margin: auto;
-      left: 0;
-      bottom: 0;
-      top: 0;
-      z-index: 1;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; }
-      main .container .taskAdder form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 30px 30px 30px;
-        background-color: #fff;
-        border-radius: 8px; }
-        main .container .taskAdder form label {
-          font-size: 1.4rem;
-          padding: 40px 0px 10px;
-          color: #393939; }
-        main .container .taskAdder form input {
-          font-size: 1.3rem;
-          padding: 10px 20px;
-          border: 1px solid #999;
-          border-radius: 6px;
-          font-weight: 400; }
-        main .container .taskAdder form textarea {
-          display: block;
-          padding: 10px 20px;
-          font-size: 1rem;
-          line-height: 28px;
-          border-radius: 6px;
-          border: 1px solid #999;
-          font-weight: 200;
-          line-height: 1.2; }
     main .container .done {
       text-decoration: line-through; }
+
+.taskAdder {
+  position: fixed;
+  background: rgba(57, 57, 57, 0.6);
+  width: 100%;
+  margin: auto;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .taskAdder form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 30px 30px;
+    background-color: #fff;
+    border-radius: 8px; }
+    .taskAdder form label {
+      font-size: 1.4rem;
+      padding: 40px 0px 10px;
+      color: #393939; }
+    .taskAdder form input {
+      font-size: 1.3rem;
+      padding: 10px 20px;
+      border: 1px solid #999;
+      border-radius: 6px;
+      font-weight: 400; }
+    .taskAdder form textarea {
+      display: block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      line-height: 28px;
+      border-radius: 6px;
+      border: 1px solid #999;
+      font-weight: 200;
+      line-height: 1.2; }
+
+.to-do,
+.in-progress,
+.done {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  overflow-y: scroll;
+  flex: 1; }
+  .to-do li,
+  .in-progress li,
+  .done li {
+    position: relative; }
+    .to-do li a,
+    .in-progress li a,
+    .done li a {
+      right: 0;
+      top: 0;
+      position: absolute; }
+  .to-do p,
+  .in-progress p,
+  .done p {
+    margin: 24px 16px;
+    padding: 20px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    background-color: whitesmoke; }
 
 button {
   font-size: 1rem;

@@ -9,19 +9,28 @@ if (!TicketList) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const removeTickets = document.querySelector("#removeTask");
+  let startColumn;
+
   removeTickets.addEventListener("click", () => {
     TicketList.remove(!true);
     rerender();
   }, false);
 
   columns.forEach(element => {
+    element.addEventListener("dragstart", (event) => {
+      startColumn = event.target.parentNode.parentNode;
+    }, false)
     element.addEventListener("dragover", allowDrop, false)
     element.addEventListener("drop", drop, false)
   });
 
   function allowDrop(event) {
     if (event.target.nodeName == "UL") {
-      event.preventDefault();
+      if (startColumn.className === "to-do" && event.target.className !== 'done') {
+        event.preventDefault();
+      } else if (startColumn.className !== "to-do") {
+        event.preventDefault();
+      }
     }
   }
 
