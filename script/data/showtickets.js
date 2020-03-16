@@ -2,7 +2,6 @@ import { rerender, TicketList } from './rerender.js';
 import TicketsList from './TicketsList.js';
 
 import Modal from './Modal';
-
 if (!TicketList) {
   let TicketList = new TicketsList();
 }
@@ -37,7 +36,7 @@ const onTicketClick = (e) => {
   let ticket = TicketList.getTicketById(ticketId);
   const title = ticket.title;
   const description = ticket.text ? ticket.text : 'There are no details about this Task';
-  
+
   // Open ticket in modal window
   const modal = new Modal();
   const modalContent = document.createElement("div");
@@ -56,21 +55,21 @@ const onDragStart = (e) => {
   const ticket = TicketList.getTicketById(ticketId);
   const liElement = ticketTextElement.parentNode;
 
-    if (ticketTextElement.nodeName === "P") {
-      ticketTextElement.style.opacity = .7;
-      e.dataTransfer.effectAllowed = "move"
-      e.dataTransfer.setData("text", JSON.stringify(ticket));
-    }
+  if (ticketTextElement.nodeName === "P") {
+    ticketTextElement.style.opacity = .7;
+    e.dataTransfer.effectAllowed = "move"
+    e.dataTransfer.setData("text", JSON.stringify(ticket));
+  }
 
-    if (ticketTextElement.className === "in-progress") {
-      liElement.parentNode.parentNode.nextElementSibling.style.backgroundColor = "#a5fdae"
-      liElement.parentNode.parentNode.previousElementSibling.style.backgroundColor = "#a5fdae"
+  if (ticketTextElement.className === "in-progress") {
+    liElement.parentNode.parentNode.nextElementSibling.style.backgroundColor = "#a5fdae"
+    liElement.parentNode.parentNode.previousElementSibling.style.backgroundColor = "#a5fdae"
 
-    } else {
-      liElement.parentNode.parentNode.nextElementSibling.style.backgroundColor = "#a5fdae";
-      liElement.parentNode.parentNode.nextElementSibling.nextElementSibling.style.backgroundColor = "#ff0000a1";
-    }
-  
+  } else {
+    liElement.parentNode.parentNode.nextElementSibling.style.backgroundColor = "#a5fdae";
+    liElement.parentNode.parentNode.nextElementSibling.nextElementSibling.style.backgroundColor = "#ff0000a1";
+  }
+
 }
 
 const onDragEnd = (e) => {
@@ -90,7 +89,7 @@ function showTickets(object, column) {
 
       let icon = li.children[0].childNodes[0];
       let ticket = li.children[1];
-      
+
       ticket.draggable = false;
 
       if (column[i].className !== "done") {
@@ -105,9 +104,12 @@ function showTickets(object, column) {
         ticket.addEventListener("dragend", onDragEnd, false);
 
         // ticket.addEventListener("dragover", function (event) {
-        //   if (selected.parentNode.className === event.target.parentNode.parentNode.className) {
-        //     if (isBefore(selected, event.target.parentNode)) event.target.parentNode.parentNode.insertBefore(selected, event.target.parentNode);
-        //     else event.target.parentNode.parentNode.insertBefore(selected, event.target.parentNode.nextSibling);
+        //   if (ticketTextElement.className === event.target.parentNode.parentNode.className &&  event.target.parentNode.nodeName === 'LI') {            
+        //     if (isBefore(ticketTextElement.parentNode, event.target.parentNode)) {
+        //       ticketTextElement.parentNode.parentNode.insertBefore(ticketTextElement.parentNode, event.target.parentNode);
+        //     } else {
+        //       ticketTextElement.parentNode.parentNode.insertBefore(event.target.parentNode, ticketTextElement.parentNode,);
+        //     }
         //   }
         // }, false);
       }
@@ -119,11 +121,13 @@ function showTickets(object, column) {
   }
 }
 
-// function isBefore(el1, el2) {
+// function isBefore(el1, el2) {  
 //   let cur
 //   if (el1 && el2) {
 //     if (el2.parentNode === el1.parentNode) {
 //       for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
+//         console.log(cur, "cur", el2, "el2");
+        
 //         if (cur === el2) return true;
 //       }
 //     } else return false;

@@ -73,32 +73,6 @@ main {
       background: $base-color;
     }
 
-    .to-do,
-    .in-progress,
-    .done {
-      border-bottom-right-radius: 8px;
-      border-bottom-left-radius: 8px;
-      overflow-y: scroll;
-      flex: 1;
-
-      li {
-        position: relative;
-        a {
-          right: 0;
-          top: 0;
-          position: absolute;
-        }
-      }
-
-      p {
-        margin: $task-margin;
-        padding: $task-padding;
-        font-size: $task-font-size;
-        border-radius: 8px;
-        background-color: $task-BG-color;
-      }
-    }
-
     h2 {
       padding: $card-header-padding;
       font-weight: 500;
@@ -106,62 +80,84 @@ main {
       width: 100%;
     }
 
-
-
-    .taskAdder {
-      position: fixed;
-      background: rgba(darken($base-color, 70%), 0.6);
-      width: 100%;
-      margin: auto;
-      left: 0;
-      bottom: 0;
-      top: 0;
-      z-index: 1;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 30px 30px 30px;
-        background-color: #fff;
-        border-radius: 8px;
-        
-
-        label {
-          font-size: 1.4rem;
-          padding: 40px 0px 10px;
-          color: darken($base-color, 70%);
-          
-        }
-
-        input {
-          font-size: 1.3rem;
-          padding: 10px 20px;
-          border: 1px solid #999;
-          border-radius: 6px;
-          font-weight: 400;
-        }
-
-        textarea {
-          display: block;
-          padding: 10px 20px;
-          font-size: 1rem;
-          line-height: 28px;
-          border-radius: 6px;
-          border: 1px solid #999;
-          font-weight: 200;
-          line-height: 1.2;
-        }
-      }
-    }
-
     .done {
       text-decoration: line-through;
     }
+  }
+}
+
+.taskAdder {
+  position: fixed;
+  background: rgba(darken($base-color, 70%), 0.6);
+  width: 100%;
+  margin: auto;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 30px 30px;
+    background-color: #fff;
+    border-radius: 8px;
+
+    label {
+      font-size: 1.4rem;
+      padding: 40px 0px 10px;
+      color: darken($base-color, 70%);
+    }
+
+    input {
+      font-size: 1.3rem;
+      padding: 10px 20px;
+      border: 1px solid #999;
+      border-radius: 6px;
+      font-weight: 400;
+    }
+
+    textarea {
+      display: block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      line-height: 28px;
+      border-radius: 6px;
+      border: 1px solid #999;
+      font-weight: 200;
+      line-height: 1.2;
+    }
+  }
+}
+
+.to-do,
+.in-progress,
+.done {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  overflow-y: scroll;
+  flex: 1;
+
+  li {
+    position: relative;
+    a {
+      right: 0;
+      top: 0;
+      position: absolute;
+    }
+  }
+
+  p {
+    margin: $task-margin;
+    padding: $task-padding;
+    font-size: $task-font-size;
+    border-radius: 8px;
+    background-color: $task-BG-color;
   }
 }
 
@@ -215,7 +211,6 @@ i {
     color: lighten($icon-color, 10%);
   }
 }
-
 
 // details-container
 .modal-container {
